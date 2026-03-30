@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Sora', -apple-system, sans-serif;
+
+  --color-dark-bg: #1a1a1a;
+  --color-dark-surface: #242424;
+  --color-dark-card: #2a2a2a;
+  --color-dark-card-hover: #333333;
+  --color-dark-border: #3a3a3a;
+  --color-dark-text: #f5f0eb;
+  --color-dark-text-secondary: #c4b9ad;
+  --color-dark-text-muted: #8a7f73;
+
+  --color-light-bg: #faf7f2;
+  --color-light-surface: #f0ebe3;
+  --color-light-card: #ffffff;
+  --color-light-card-hover: #f5f0e8;
+  --color-light-border: #e0d8cc;
+  --color-light-text: #2c2c2c;
+  --color-light-text-secondary: #5a5347;
+  --color-light-text-muted: #8a7f73;
+
+  --color-accent: #c9a96e;
+  --color-accent-hover: #d4b97e;
+  --color-accent-soft: rgba(201, 169, 110, 0.1);
+  --color-accent-light: #b8860b;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-dark-bg);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

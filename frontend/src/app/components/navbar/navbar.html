@@ -1,0 +1,62 @@
+<nav
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  [class]="navBg()"
+  [class.py-4]="!scrolled()"
+  [class.py-3]="scrolled()"
+>
+  <div class="max-w-[1100px] mx-auto px-6 flex items-center justify-between">
+    <a href="#" class="font-heading text-2xl font-bold" [class]="logoColor()">DH</a>
+
+    <div
+      class="flex items-center gap-8 max-md:fixed max-md:top-0 max-md:w-[280px] max-md:h-screen max-md:flex-col max-md:justify-center max-md:gap-6 max-md:shadow-xl max-md:transition-[right] max-md:duration-300 max-md:z-50"
+      [class.bg-dark-surface]="mobileOpen() && theme.isDark()"
+      [class.bg-light-surface]="mobileOpen() && !theme.isDark()"
+      [class.max-md:right-0]="mobileOpen()"
+      [class.max-md:-right-full]="!mobileOpen()"
+    >
+      @for (link of links; track link.key) {
+        <a
+          [href]="link.href"
+          class="text-sm font-medium tracking-wide transition-colors duration-200"
+          [class]="linkColor()"
+          (click)="closeMobile()"
+        >
+          {{ link.key | translate }}
+        </a>
+      }
+
+      <div class="flex items-center gap-2 max-md:mt-4">
+        <button
+          class="w-9 h-9 rounded-lg border flex items-center justify-center text-xs font-semibold cursor-pointer transition-all duration-200"
+          [class]="btnStyle()"
+          (click)="i18n.toggle()"
+          aria-label="Switch language"
+        >
+          {{ i18n.isEs() ? 'EN' : 'ES' }}
+        </button>
+        <button
+          class="w-9 h-9 rounded-lg border flex items-center justify-center text-base cursor-pointer transition-all duration-200"
+          [class]="btnStyle()"
+          (click)="theme.toggle()"
+          aria-label="Toggle theme"
+        >
+          @if (theme.isDark()) { &#9788; } @else { &#9790; }
+        </button>
+      </div>
+    </div>
+
+    <button
+      class="md:hidden flex flex-col gap-[5px] bg-transparent border-none cursor-pointer p-1"
+      (click)="toggleMobile()"
+      [attr.aria-expanded]="mobileOpen()"
+      aria-label="Menu"
+    >
+      <span class="block w-6 h-0.5 rounded-sm transition-all duration-300" [class]="barColor()"
+        [class.rotate-45]="mobileOpen()" [class.translate-y-[7px]]="mobileOpen()"></span>
+      <span class="block w-6 h-0.5 rounded-sm transition-all duration-300" [class]="barColor()"
+        [class.opacity-0]="mobileOpen()"></span>
+      <span class="block w-6 h-0.5 rounded-sm transition-all duration-300" [class]="barColor()"
+        [class.-rotate-45]="mobileOpen()" [class.-translate-y-[7px]]="mobileOpen()"></span>
+    </button>
+  </div>
+</nav>

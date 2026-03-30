@@ -1,0 +1,24 @@
+<section class="py-24 md:py-28" [class]="sectionBg()" id="services">
+  <div class="max-w-[1100px] mx-auto px-6">
+    <h2 appScrollAnimate class="font-heading text-4xl font-semibold mb-2" [class]="titleColor()">
+      {{ 'services.title' | translate }}
+    </h2>
+    <p appScrollAnimate [delay]="100" class="text-base mb-12" [class]="mutedColor()">
+      {{ 'services.subtitle' | translate }}
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (service of services; track service.titleKey; let i = $index) {
+        <div
+          appScrollAnimate [delay]="i * 100"
+          class="rounded-2xl border p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-default"
+          [class]="cardStyle()"
+        >
+          <span class="inline-block text-2xl text-accent mb-4" [innerHTML]="service.icon"></span>
+          <h3 class="font-heading text-lg mb-2" [class]="cardTitle()">{{ service.titleKey | translate }}</h3>
+          <p class="text-sm leading-relaxed" [class]="cardDesc()">{{ service.descKey | translate }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

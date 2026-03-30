@@ -1,0 +1,16 @@
+<footer class="pt-10 pb-6" [class]="footerBg()">
+  <div class="max-w-[1100px] mx-auto px-6">
+    <div class="flex items-center justify-between mb-6 max-sm:flex-col max-sm:gap-4">
+      <a href="#" class="font-heading text-xl font-bold" [class]="logoColor()">DH</a>
+      <div class="flex gap-6">
+        <a href="https://linkedin.com/in/" target="_blank" rel="noopener"
+          class="text-sm font-medium transition-colors duration-200" [class]="linkColor()">LinkedIn</a>
+        <a href="https://github.com/" target="_blank" rel="noopener"
+          class="text-sm font-medium transition-colors duration-200" [class]="linkColor()">GitHub</a>
+      </div>
+    </div>
+    <div class="border-t pt-5 flex items-center justify-center" [class]="dividerColor()">
+      <p class="text-xs" [class]="mutedColor()">&copy; {{ year }} Diego Hung. {{ 'footer.rights' | translate }}</p>
+    </div>
+  </div>
+</footer>

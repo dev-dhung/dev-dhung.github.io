@@ -1,0 +1,31 @@
+<section class="py-24 md:py-28" id="about">
+  <div class="max-w-[1100px] mx-auto px-6">
+    <h2 appScrollAnimate class="font-heading text-4xl font-semibold mb-2" [class]="titleColor()">
+      {{ 'about.title' | translate }}
+    </h2>
+    <p appScrollAnimate [delay]="100" class="text-base mb-12" [class]="mutedColor()">
+      {{ 'about.subtitle' | translate }}
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-12 items-start">
+      <div appScrollAnimate [delay]="200" class="space-y-4">
+        @for (key of paragraphs; track key) {
+          <p class="text-[0.95rem] leading-relaxed" [class]="textColor()">{{ key | translate }}</p>
+        }
+      </div>
+
+      <div appScrollAnimate [delay]="300">
+        <div class="rounded-2xl border p-7 transition-colors duration-200" [class]="cardStyle()">
+          <span class="text-xs font-medium uppercase tracking-wider" [class]="mutedColor()">
+            {{ 'about.stack' | translate }}
+          </span>
+          <div class="flex flex-wrap gap-2 mt-4">
+            @for (tech of stack; track tech) {
+              <span class="px-4 py-2 rounded-full text-sm font-semibold" [class]="tagStyle()">{{ tech }}</span>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
