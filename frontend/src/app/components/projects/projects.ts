@@ -23,9 +23,9 @@ export class Projects {
   protected readonly github = inject(GithubService);
 
   private readonly placeholders: PlaceholderCard[] = [
-    { titleKey: 'projects.web.title', descKey: 'projects.web.desc', icon: '&#9683;', tags: ['Angular', 'TypeScript', 'RxJS', 'NgRx'], category: 'web' },
-    { titleKey: 'projects.mobile.title', descKey: 'projects.mobile.desc', icon: '&#9743;', tags: ['Ionic', 'React Native', 'Mobile'], category: 'mobile' },
-    { titleKey: 'projects.games.title', descKey: 'projects.games.desc', icon: '&#9654;', tags: ['Unity', 'C#', 'Game Dev'], category: 'game' },
+    { titleKey: 'projects.web.title', descKey: 'projects.web.desc', icon: '&#127760;', tags: ['Angular', 'TypeScript', 'RxJS', 'NgRx'], category: 'web' },
+    { titleKey: 'projects.mobile.title', descKey: 'projects.mobile.desc', icon: '&#128241;', tags: ['Flutter', 'React Native', 'Ionic'], category: 'mobile' },
+    { titleKey: 'projects.games.title', descKey: 'projects.games.desc', icon: '&#128126;', tags: ['Unity', 'C#', 'Game Dev'], category: 'game' },
   ];
 
   protected readonly visiblePlaceholders = computed(() =>
