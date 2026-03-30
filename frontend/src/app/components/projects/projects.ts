@@ -36,7 +36,7 @@ export class Projects {
   );
 
   protected readonly realProjects = computed(() => this.github.projects());
-  protected readonly loading = computed(() => this.github.loading());
+  protected readonly loaded = computed(() => this.github.loaded());
 
   protected readonly titleColor = computed(() => this.theme.isDark() ? 'text-dark-text' : 'text-light-text');
   protected readonly mutedColor = computed(() => this.theme.isDark() ? 'text-dark-text-muted' : 'text-light-text-muted');
