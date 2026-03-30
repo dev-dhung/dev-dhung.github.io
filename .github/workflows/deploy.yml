@@ -42,7 +42,7 @@ jobs:
           cp frontend/src/environments/environment.ts frontend/src/environments/environment.development.ts
 
       - name: Build
-        run: cd frontend && npx ng build --base-href /portfolio/
+        run: cd frontend && npx ng build --base-href /
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
