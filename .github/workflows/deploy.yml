@@ -29,16 +29,12 @@ jobs:
         run: cd frontend && npm ci
 
       - name: Generate environment
+        env:
+          EMAILJS_PUBLIC_KEY: ${{ secrets.EMAILJS_PUBLIC_KEY }}
+          EMAILJS_SERVICE_ID: ${{ secrets.EMAILJS_SERVICE_ID }}
+          EMAILJS_TEMPLATE_ID: ${{ secrets.EMAILJS_TEMPLATE_ID }}
         run: |
-          cat > frontend/src/environments/environment.ts << 'ENVEOF'
-          export const environment = {
-            emailjs: {
-              publicKey: '${{ secrets.EMAILJS_PUBLIC_KEY }}',
-              serviceId: '${{ secrets.EMAILJS_SERVICE_ID }}',
-              templateId: '${{ secrets.EMAILJS_TEMPLATE_ID }}',
-            },
-          };
-          ENVEOF
+          echo "export const environment = { emailjs: { publicKey: '${EMAILJS_PUBLIC_KEY}', serviceId: '${EMAILJS_SERVICE_ID}', templateId: '${EMAILJS_TEMPLATE_ID}' } };" > frontend/src/environments/environment.ts
           cp frontend/src/environments/environment.ts frontend/src/environments/environment.development.ts
 
       - name: Build
