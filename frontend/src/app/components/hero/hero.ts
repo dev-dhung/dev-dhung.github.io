@@ -57,6 +57,10 @@ export class Hero implements OnInit, OnDestroy {
       : 'border-light-border text-light-text-secondary hover:border-accent-light hover:text-accent-light',
   );
 
+  protected readonly cvUrl = computed(() =>
+    this.i18n.isEs() ? 'cv-diego-hung-es.pdf' : 'cv-diego-hung-en.pdf',
+  );
+
   ngOnInit(): void {
     this.typeNext();
     this.cursorTimer = setInterval(() => this.showCursor.update((v) => !v), 530);

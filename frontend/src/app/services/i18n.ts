@@ -18,7 +18,7 @@ export class I18nService {
     'hero.greeting': { es: 'Hola, soy', en: "Hi, I'm" },
     'hero.title': { es: 'Frontend Developer', en: 'Frontend Developer' },
     'hero.cta': { es: 'Contáctame', en: 'Get in Touch' },
-    'hero.cv': { es: 'Ver CV', en: 'View CV' },
+    'hero.cv': { es: 'Descargar CV', en: 'Download CV' },
 
     'about.title': { es: 'Sobre Mí', en: 'About Me' },
     'about.subtitle': { es: 'Un poco de mi camino', en: 'A bit about my journey' },
