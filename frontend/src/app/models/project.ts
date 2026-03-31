@@ -10,11 +10,12 @@ export interface Project {
   category: ProjectCategory;
   stars: number;
   updatedAt: string;
-  image: string | null;
+  images: string[];
   featured: boolean;
 }
 
 export interface PortfolioMeta {
   image?: string;
+  images?: string[];
   featured?: boolean;
 }

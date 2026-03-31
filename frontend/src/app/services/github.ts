@@ -82,7 +82,7 @@ export class GithubService {
       category: this.getCategory(repo.topics),
       stars: repo.stargazers_count,
       updatedAt: repo.updated_at,
-      image: meta.image ?? null,
+      images: meta.images ?? (meta.image ? [meta.image] : []),
       featured: meta.featured ?? false,
     };
   }

@@ -7,100 +7,63 @@
       {{ 'projects.subtitle' | translate }}
     </p>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      <!-- Real projects from GitHub -->
-      @for (project of realProjects(); track project.url; let i = $index) {
-        <a
-          [href]="project.homepage || project.url"
-          target="_blank"
-          rel="noopener"
-          appScrollAnimate [delay]="i * 100"
-          class="rounded-2xl border overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg flex flex-col no-underline group"
-          [class]="cardStyle()"
-        >
-          <!-- Project image -->
-          @if (project.image) {
-            <div class="w-full h-44 overflow-hidden">
-              <img
-                [src]="project.image"
-                [alt]="project.name"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-          }
-
-          <div class="p-7 flex flex-col flex-1">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-semibold uppercase tracking-wider text-accent">
-                {{ project.category }}
-              </span>
-              <div class="flex items-center gap-2">
-                @if (project.featured) {
-                  <span class="bg-accent-soft text-accent px-2 py-0.5 rounded-full text-[10px] font-semibold uppercase">
-                    Featured
-                  </span>
-                }
-                @if (project.language) {
-                  <span class="text-xs font-medium" [class]="mutedColor()">{{ project.language }}</span>
-                }
-              </div>
-            </div>
-
-            <h3 class="font-heading text-lg mb-2 group-hover:text-accent transition-colors" [class]="titleColor()">
-              {{ project.name }}
-            </h3>
-
-            <p class="text-sm leading-relaxed flex-1" [class]="cardDesc()">{{ project.description }}</p>
-
-            <div class="flex flex-wrap gap-1.5 mt-4">
-              @for (tag of project.topics; track tag) {
-                <span class="px-3 py-1 rounded-full text-xs font-medium" [class]="tagStyle()">{{ tag }}</span>
-              }
-            </div>
-
-            <div class="mt-4 flex items-center gap-4">
-              <span class="text-xs font-medium transition-colors" [class]="linkStyle()">
-                {{ project.homepage ? 'Ver demo &#8599;' : 'Ver código &#8599;' }}
-              </span>
-              @if (project.homepage) {
-                <a
-                  [href]="project.url"
-                  target="_blank"
-                  rel="noopener"
-                  class="text-xs font-medium transition-colors"
-                  [class]="mutedColor()"
-                  (click)="$event.stopPropagation()"
-                >GitHub</a>
-              }
-            </div>
-          </div>
-        </a>
-      }
-
-      <!-- Placeholder cards for categories without projects -->
-      @for (cat of visiblePlaceholders(); track cat.category; let i = $index) {
+    <!-- Category cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      @for (cat of categories; track cat.key; let i = $index) {
         <div
-          appScrollAnimate [delay]="(realProjects().length + i) * 100"
-          class="rounded-2xl border p-7 transition-all duration-300 flex flex-col min-h-[260px] opacity-70"
+          appScrollAnimate [delay]="i * 150"
+          class="rounded-2xl border p-7 transition-all duration-300 flex flex-col min-h-[280px]"
           [class]="cardStyle()"
+          [class.hover:-translate-y-1]="hasProjects(cat.key)"
+          [class.hover:shadow-lg]="hasProjects(cat.key)"
+          [class.cursor-pointer]="hasProjects(cat.key)"
+          [class.opacity-70]="!hasProjects(cat.key)"
+          (click)="openCategory(cat.key)"
         >
+          <!-- Header -->
           <div class="flex items-center justify-between mb-5">
-            <span class="text-3xl text-accent" [innerHTML]="cat.icon"></span>
-            <span class="bg-accent-soft text-accent px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">
-              {{ 'projects.coming' | translate }}
-            </span>
-          </div>
-          <h3 class="font-heading text-lg mb-2" [class]="titleColor()">{{ cat.titleKey | translate }}</h3>
-          <p class="text-sm leading-relaxed flex-1" [class]="cardDesc()">{{ cat.descKey | translate }}</p>
-          <div class="flex flex-wrap gap-1.5 mt-4">
-            @for (tag of cat.tags; track tag) {
-              <span class="px-3 py-1 rounded-full text-xs font-medium" [class]="tagStyle()">{{ tag }}</span>
+            <span class="text-4xl" [innerHTML]="cat.icon"></span>
+            @if (hasProjects(cat.key)) {
+              <span class="bg-accent-soft text-accent px-3 py-1 rounded-full text-xs font-semibold">
+                {{ projectCount(cat.key) }} {{ projectCount(cat.key) === 1 ? 'proyecto' : 'proyectos' }}
+              </span>
+            } @else {
+              <span class="bg-accent-soft text-accent px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">
+                {{ 'projects.coming' | translate }}
+              </span>
             }
           </div>
+
+          <!-- Title -->
+          <h3 class="font-heading text-xl mb-3" [class]="titleColor()">
+            {{ cat.titleKey | translate }}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-sm leading-relaxed flex-1" [class]="cardDesc()">
+            {{ cat.descKey | translate }}
+          </p>
+
+          <!-- Action hint -->
+          @if (hasProjects(cat.key)) {
+            <div class="mt-5 pt-4 border-t" [class]="theme.isDark() ? 'border-dark-border' : 'border-light-border'">
+              <span class="text-sm font-medium text-accent">
+                {{ i18n.isEs() ? 'Ver proyectos' : 'View projects' }} &#8594;
+              </span>
+            </div>
+          }
         </div>
       }
-
     </div>
   </div>
 </section>
+
+<!-- Project Modal -->
+@if (activeCategory() && activeCategoryData()) {
+  <app-project-modal
+    [projects]="activeProjects()"
+    [categoryTitle]="activeCategoryData()!.titleKey | translate"
+    [categoryIcon]="activeCategoryData()!.icon"
+    (close)="closeModal()"
+  />
+}

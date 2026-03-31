@@ -1,0 +1,102 @@
+<div
+  class="modal-backdrop fixed inset-0 z-[100] backdrop-blur-sm flex items-start justify-center overflow-y-auto py-12 px-4 animate-[fadeIn_0.2s_ease]"
+  [class]="overlayBg()"
+  (click)="onBackdropClick($event)"
+>
+  <div class="w-full max-w-4xl">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-8">
+      <div class="flex items-center gap-3">
+        @if (categoryIcon()) {
+          <span class="text-3xl" [innerHTML]="categoryIcon()"></span>
+        }
+        <h2 class="font-heading text-3xl font-semibold" [class]="titleColor()">
+          {{ categoryTitle() }}
+        </h2>
+        <span class="text-sm font-medium ml-2" [class]="mutedColor()">
+          ({{ projects().length }})
+        </span>
+      </div>
+      <button
+        class="w-10 h-10 rounded-full border flex items-center justify-center cursor-pointer transition-all duration-200 text-lg"
+        [class]="closeBtnStyle()"
+        (click)="close.emit()"
+      >&#10005;</button>
+    </div>
+
+    <!-- Project cards -->
+    <div class="space-y-6">
+      @for (project of projects(); track project.url) {
+        <div
+          class="rounded-2xl border overflow-hidden transition-all duration-300 hover:shadow-lg"
+          [class]="cardStyle()"
+        >
+          <!-- Carousel if images exist -->
+          @if (project.images.length > 0) {
+            <app-image-carousel
+              [images]="project.images"
+              height="h-64"
+              (imageClick)="openLightbox(project.images, $event)"
+            />
+          }
+
+          <div class="p-7">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="font-heading text-xl font-semibold" [class]="titleColor()">
+                {{ project.name }}
+              </h3>
+              <div class="flex items-center gap-2">
+                @if (project.featured) {
+                  <span class="bg-accent-soft text-accent px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase">
+                    Featured
+                  </span>
+                }
+                @if (project.language) {
+                  <span class="text-xs font-medium" [class]="mutedColor()">{{ project.language }}</span>
+                }
+              </div>
+            </div>
+
+            <p class="text-sm leading-relaxed mb-4" [class]="textColor()">{{ project.description }}</p>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              @for (tag of project.topics; track tag) {
+                <span class="px-3 py-1 rounded-full text-xs font-medium" [class]="tagStyle()">{{ tag }}</span>
+              }
+            </div>
+
+            <!-- Links -->
+            <div class="flex items-center gap-4">
+              @if (project.homepage) {
+                <a
+                  [href]="project.homepage"
+                  target="_blank"
+                  rel="noopener"
+                  class="text-sm font-semibold transition-colors"
+                  [class]="linkStyle()"
+                >{{ i18n.isEs() ? 'Ver demo' : 'View demo' }} &#8599;</a>
+              }
+              <a
+                [href]="project.url"
+                target="_blank"
+                rel="noopener"
+                class="text-sm font-medium transition-colors"
+                [class]="mutedColor()"
+              >GitHub &#8599;</a>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox -->
+@if (showLightbox()) {
+  <app-lightbox
+    [images]="lightboxImages()"
+    [startIndex]="lightboxIndex()"
+    (close)="showLightbox.set(false)"
+  />
+}

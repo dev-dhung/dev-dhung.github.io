@@ -1,0 +1,41 @@
+<div class="relative overflow-hidden rounded-t-2xl group" [class]="height()">
+  <!-- Images -->
+  <div
+    class="flex transition-transform duration-500 ease-out h-full"
+    [style.transform]="'translateX(-' + current() * 100 + '%)'"
+  >
+    @for (img of images(); track img; let i = $index) {
+      <img
+        [src]="img"
+        [alt]="'Image ' + (i + 1)"
+        class="w-full flex-shrink-0 object-cover cursor-pointer h-full"
+        (click)="onImageClick()"
+      />
+    }
+  </div>
+
+  <!-- Arrows (only if multiple images) -->
+  @if (total() > 1) {
+    <button
+      class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 cursor-pointer text-sm"
+      (click)="prev(); $event.stopPropagation()"
+    >&#10094;</button>
+    <button
+      class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 cursor-pointer text-sm"
+      (click)="next(); $event.stopPropagation()"
+    >&#10095;</button>
+
+    <!-- Dots -->
+    <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+      @for (img of images(); track img; let i = $index) {
+        <button
+          class="w-2 h-2 rounded-full transition-all duration-200 cursor-pointer"
+          [class.bg-white]="current() === i"
+          [class.scale-110]="current() === i"
+          [class.bg-white/50]="current() !== i"
+          (click)="goTo(i); $event.stopPropagation()"
+        ></button>
+      }
+    </div>
+  }
+</div>
