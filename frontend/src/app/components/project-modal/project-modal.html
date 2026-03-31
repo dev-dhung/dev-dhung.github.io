@@ -24,67 +24,65 @@
       >&#10005;</button>
     </div>
 
-    <!-- Project cards -->
-    <div class="space-y-6">
+    <!-- Project cards grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       @for (project of projects(); track project.url) {
         <div
-          class="rounded-2xl border overflow-hidden transition-all duration-300 hover:shadow-lg"
+          class="rounded-2xl border p-7 transition-all duration-300 hover:shadow-lg flex flex-col min-h-[280px]"
           [class]="cardStyle()"
         >
-          <!-- Carousel if images exist -->
-          @if (project.images.length > 0) {
-            <app-image-carousel
-              [images]="project.images"
-              height="h-64"
-              (imageClick)="openLightbox(project.images, $event)"
-            />
-          }
-
-          <div class="p-7">
-            <div class="flex items-center justify-between mb-3">
-              <h3 class="font-heading text-xl font-semibold" [class]="titleColor()">
-                {{ project.name }}
-              </h3>
-              <div class="flex items-center gap-2">
-                @if (project.featured) {
-                  <span class="bg-accent-soft text-accent px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase">
-                    Featured
-                  </span>
-                }
-                @if (project.language) {
-                  <span class="text-xs font-medium" [class]="mutedColor()">{{ project.language }}</span>
-                }
-              </div>
-            </div>
-
-            <p class="text-sm leading-relaxed mb-4" [class]="textColor()">{{ project.description }}</p>
-
-            <!-- Tags -->
-            <div class="flex flex-wrap gap-1.5 mb-5">
-              @for (tag of project.topics; track tag) {
-                <span class="px-3 py-1 rounded-full text-xs font-medium" [class]="tagStyle()">{{ tag }}</span>
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="font-heading text-lg font-semibold" [class]="titleColor()">
+              {{ project.name }}
+            </h3>
+            <div class="flex items-center gap-2">
+              @if (project.featured) {
+                <span class="bg-accent-soft text-accent px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase">
+                  Featured
+                </span>
+              }
+              @if (project.language) {
+                <span class="text-xs font-medium" [class]="mutedColor()">{{ project.language }}</span>
               }
             </div>
+          </div>
 
-            <!-- Links -->
-            <div class="flex items-center gap-4">
-              @if (project.homepage) {
-                <a
-                  [href]="project.homepage"
-                  target="_blank"
-                  rel="noopener"
-                  class="text-sm font-semibold transition-colors"
-                  [class]="linkStyle()"
-                >{{ i18n.isEs() ? 'Ver demo' : 'View demo' }} &#8599;</a>
-              }
+          <p class="text-sm leading-relaxed mb-4 flex-1" [class]="textColor()">{{ project.description }}</p>
+
+          <!-- Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-5">
+            @for (tag of project.topics; track tag) {
+              <span class="px-3 py-1 rounded-full text-xs font-medium" [class]="tagStyle()">{{ tag }}</span>
+            }
+          </div>
+
+          <!-- Actions -->
+          <div class="flex items-center gap-4 pt-4 border-t" [class]="theme.isDark() ? 'border-dark-border' : 'border-light-border'">
+            @if (project.images.length > 0) {
+              <button
+                class="text-sm font-medium transition-colors cursor-pointer bg-transparent border-none"
+                [class]="linkStyle()"
+                (click)="openLightbox(project.images, 0)"
+              >
+                {{ i18n.isEs() ? 'Ver imágenes' : 'View images' }} ({{ project.images.length }}) &#9633;
+              </button>
+            }
+            @if (project.homepage) {
               <a
-                [href]="project.url"
+                [href]="project.homepage"
                 target="_blank"
                 rel="noopener"
-                class="text-sm font-medium transition-colors"
-                [class]="mutedColor()"
-              >GitHub &#8599;</a>
-            </div>
+                class="text-sm font-semibold transition-colors"
+                [class]="linkStyle()"
+              >{{ i18n.isEs() ? 'Demo' : 'Demo' }} &#8599;</a>
+            }
+            <a
+              [href]="project.url"
+              target="_blank"
+              rel="noopener"
+              class="text-sm font-medium transition-colors"
+              [class]="mutedColor()"
+            >GitHub &#8599;</a>
           </div>
         </div>
       }
