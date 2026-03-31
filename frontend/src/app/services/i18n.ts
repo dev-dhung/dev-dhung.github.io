@@ -31,8 +31,8 @@ export class I18nService {
       en: 'Currently, I lead the modernization of high-performance architectures and the integration of Generative Artificial Intelligence for workflow automation.',
     },
     'about.p3': {
-      es: 'Experto en gestión de estados complejos con RxJS y Redux. Fuera del código profesional, canalizo mi creatividad a través de DHung Labs, mi sello personal para el desarrollo de videojuegos indie.',
-      en: 'Expert in complex state management with RxJS and Redux. Outside of professional work, I channel my creativity through DHung Labs, my personal brand for indie game development.',
+      es: 'Experto en gestión de estados complejos con RxJS y Redux. Fuera del código profesional, canalizo mi creatividad a través de Dhung Labs, mi sello personal para el desarrollo de videojuegos indie.',
+      en: 'Expert in complex state management with RxJS and Redux. Outside of professional work, I channel my creativity through Dhung Labs, my personal brand for indie game development.',
     },
     'about.stack': { es: 'Stack Principal', en: 'Core Stack' },
 
@@ -82,10 +82,10 @@ export class I18nService {
       es: 'Explorando el desarrollo móvil multiplataforma con Ionic y React Native.',
       en: 'Exploring cross-platform mobile development with Ionic and React Native.',
     },
-    'projects.games.title': { es: 'DHung Labs', en: 'DHung Labs' },
+    'projects.games.title': { es: 'Dhung Labs', en: 'Dhung Labs' },
     'projects.games.desc': {
-      es: 'Ideas que cobran vida, un pixel a la vez. Videojuegos indie desarrollados con Unity bajo mi sello personal.',
-      en: 'Ideas come alive, one pixel at a time. Indie games developed with Unity under my personal brand.',
+      es: 'Construyendo lo que imaginamos. Videojuegos indie desarrollados con Unity bajo mi sello personal.',
+      en: 'Building what we imagine. Indie games developed with Unity under my personal brand.',
     },
 
     'tech.title': { es: 'Stack Tecnológico', en: 'Tech Stack' },
