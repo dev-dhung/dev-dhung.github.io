@@ -16,44 +16,64 @@
           target="_blank"
           rel="noopener"
           appScrollAnimate [delay]="i * 100"
-          class="rounded-2xl border p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg flex flex-col min-h-[260px] no-underline group"
+          class="rounded-2xl border overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg flex flex-col no-underline group"
           [class]="cardStyle()"
         >
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-semibold uppercase tracking-wider text-accent">
-              {{ project.category }}
-            </span>
-            @if (project.language) {
-              <span class="text-xs font-medium" [class]="mutedColor()">{{ project.language }}</span>
-            }
-          </div>
+          <!-- Project image -->
+          @if (project.image) {
+            <div class="w-full h-44 overflow-hidden">
+              <img
+                [src]="project.image"
+                [alt]="project.name"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          }
 
-          <h3 class="font-heading text-lg mb-2 group-hover:text-accent transition-colors" [class]="titleColor()">
-            {{ project.name }}
-          </h3>
+          <div class="p-7 flex flex-col flex-1">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold uppercase tracking-wider text-accent">
+                {{ project.category }}
+              </span>
+              <div class="flex items-center gap-2">
+                @if (project.featured) {
+                  <span class="bg-accent-soft text-accent px-2 py-0.5 rounded-full text-[10px] font-semibold uppercase">
+                    Featured
+                  </span>
+                }
+                @if (project.language) {
+                  <span class="text-xs font-medium" [class]="mutedColor()">{{ project.language }}</span>
+                }
+              </div>
+            </div>
 
-          <p class="text-sm leading-relaxed flex-1" [class]="cardDesc()">{{ project.description }}</p>
+            <h3 class="font-heading text-lg mb-2 group-hover:text-accent transition-colors" [class]="titleColor()">
+              {{ project.name }}
+            </h3>
 
-          <div class="flex flex-wrap gap-1.5 mt-4">
-            @for (tag of project.topics; track tag) {
-              <span class="px-3 py-1 rounded-full text-xs font-medium" [class]="tagStyle()">{{ tag }}</span>
-            }
-          </div>
+            <p class="text-sm leading-relaxed flex-1" [class]="cardDesc()">{{ project.description }}</p>
 
-          <div class="mt-4 flex items-center gap-4">
-            <span class="text-xs font-medium transition-colors" [class]="linkStyle()">
-              {{ project.homepage ? 'Ver demo &#8599;' : 'Ver código &#8599;' }}
-            </span>
-            @if (project.homepage) {
-              <a
-                [href]="project.url"
-                target="_blank"
-                rel="noopener"
-                class="text-xs font-medium transition-colors"
-                [class]="mutedColor()"
-                (click)="$event.stopPropagation()"
-              >GitHub</a>
-            }
+            <div class="flex flex-wrap gap-1.5 mt-4">
+              @for (tag of project.topics; track tag) {
+                <span class="px-3 py-1 rounded-full text-xs font-medium" [class]="tagStyle()">{{ tag }}</span>
+              }
+            </div>
+
+            <div class="mt-4 flex items-center gap-4">
+              <span class="text-xs font-medium transition-colors" [class]="linkStyle()">
+                {{ project.homepage ? 'Ver demo &#8599;' : 'Ver código &#8599;' }}
+              </span>
+              @if (project.homepage) {
+                <a
+                  [href]="project.url"
+                  target="_blank"
+                  rel="noopener"
+                  class="text-xs font-medium transition-colors"
+                  [class]="mutedColor()"
+                  (click)="$event.stopPropagation()"
+                >GitHub</a>
+              }
+            </div>
           </div>
         </a>
       }

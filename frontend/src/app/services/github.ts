@@ -1,8 +1,8 @@
 import { Injectable, inject, signal, computed } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, catchError, of, tap } from 'rxjs';
+import { forkJoin, map, catchError, of, tap, switchMap } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Project, ProjectCategory } from '../models/project';
+import { Project, ProjectCategory, PortfolioMeta } from '../models/project';
 
 interface GitHubRepo {
   name: string;
@@ -14,6 +14,7 @@ interface GitHubRepo {
   stargazers_count: number;
   updated_at: string;
   fork: boolean;
+  default_branch: string;
 }
 
 const TOPIC_MAP: Record<string, ProjectCategory> = {
@@ -40,7 +41,8 @@ export class GithubService {
     this.http
       .get<GitHubRepo[]>(this.API_URL, { params: { sort: 'updated', per_page: '100' } })
       .pipe(
-        map((repos) => this.mapToProjects(repos)),
+        map((repos) => repos.filter((r) => !r.fork && r.topics.some((t) => t in TOPIC_MAP))),
+        switchMap((repos) => this.enrichWithMeta(repos)),
         catchError(() => of([] as Project[])),
         tap(() => this.loaded.set(true)),
         takeUntilDestroyed(),
@@ -48,20 +50,41 @@ export class GithubService {
       .subscribe((projects) => this.projects.set(projects));
   }
 
-  private mapToProjects(repos: GitHubRepo[]): Project[] {
-    return repos
-      .filter((repo) => !repo.fork && repo.topics.some((t) => t in TOPIC_MAP))
-      .map((repo) => ({
-        name: this.formatName(repo.name),
-        description: repo.description ?? '',
-        url: repo.html_url,
-        homepage: repo.homepage || null,
-        language: repo.language ?? '',
-        topics: repo.topics.filter((t) => !(t in TOPIC_MAP)),
-        category: this.getCategory(repo.topics),
-        stars: repo.stargazers_count,
-        updatedAt: repo.updated_at,
-      }));
+  private enrichWithMeta(repos: GitHubRepo[]) {
+    if (repos.length === 0) return of([] as Project[]);
+
+    const requests = repos.map((repo) => {
+      const metaUrl = `https://raw.githubusercontent.com/${this.GITHUB_USER}/${repo.name}/${repo.default_branch}/portfolio.json`;
+
+      return this.http.get<PortfolioMeta>(metaUrl).pipe(
+        catchError(() => of({} as PortfolioMeta)),
+        map((meta) => this.toProject(repo, meta)),
+      );
+    });
+
+    return forkJoin(requests).pipe(
+      map((projects) => {
+        const featured = projects.filter((p) => p.featured);
+        const rest = projects.filter((p) => !p.featured);
+        return [...featured, ...rest];
+      }),
+    );
+  }
+
+  private toProject(repo: GitHubRepo, meta: PortfolioMeta): Project {
+    return {
+      name: this.formatName(repo.name),
+      description: repo.description ?? '',
+      url: repo.html_url,
+      homepage: repo.homepage || null,
+      language: repo.language ?? '',
+      topics: repo.topics.filter((t) => !(t in TOPIC_MAP)),
+      category: this.getCategory(repo.topics),
+      stars: repo.stargazers_count,
+      updatedAt: repo.updated_at,
+      image: meta.image ?? null,
+      featured: meta.featured ?? false,
+    };
   }
 
   private getCategory(topics: string[]): ProjectCategory {

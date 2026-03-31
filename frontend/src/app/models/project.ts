@@ -10,4 +10,11 @@ export interface Project {
   category: ProjectCategory;
   stars: number;
   updatedAt: string;
+  image: string | null;
+  featured: boolean;
+}
+
+export interface PortfolioMeta {
+  image?: string;
+  featured?: boolean;
 }
