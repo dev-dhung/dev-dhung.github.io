@@ -23,16 +23,16 @@ export class I18nService {
     'about.title': { es: 'Sobre Mí', en: 'About Me' },
     'about.subtitle': { es: 'Un poco de mi camino', en: 'A bit about my journey' },
     'about.p1': {
-      es: 'Empecé como desarrollador generalista, trabajando con Node, PHP y SQL, lo que me dio una visión completa de cómo funcionan las aplicaciones de punta a punta. Con el tiempo, descubrí que mi lugar estaba en el frontend y me especialicé en el ecosistema Angular.',
-      en: 'I started as a generalist developer, working with Node, PHP, and SQL, which gave me a thorough understanding of how applications work end to end. Over time, I found my sweet spot in frontend development and specialized in the Angular ecosystem.',
+      es: 'Ingeniero Frontend con experiencia transformando requisitos complejos en soluciones robustas y escalables dentro del ecosistema Angular. Mi trayectoria combina una sólida base en tecnologías de servidor (Node, MySQL) con una especialización avanzada en el lado del cliente, lo que me otorga una visión integral del ciclo de vida del software.',
+      en: 'Frontend Engineer with experience transforming complex requirements into robust, scalable solutions within the Angular ecosystem. My background combines a solid foundation in server-side technologies (Node, MySQL) with advanced client-side specialization, giving me a comprehensive view of the software lifecycle.',
     },
     'about.p2': {
-      es: 'Haber pasado por el backend me permite entender lo que pasa del otro lado y comunicarme mejor con los equipos, optimizando la relación entre cliente y servidor sin fricciones.',
-      en: 'Having worked on the backend side allows me to understand what happens behind the scenes and communicate effectively with teams, streamlining client-server interactions without friction.',
+      es: 'Actualmente, lidero la modernización de arquitecturas de alto rendimiento y la integración de Inteligencia Artificial Generativa para la automatización de flujos de trabajo.',
+      en: 'Currently, I lead the modernization of high-performance architectures and the integration of Generative Artificial Intelligence for workflow automation.',
     },
     'about.p3': {
-      es: 'Me apasiona escribir código limpio, cuidar el rendimiento y construir arquitecturas que escalen bien. Trabajo con RxJS y NgRx a diario, y disfruto colaborar en equipos donde las ideas de negocio se convierten en soluciones técnicas que realmente funcionan.',
-      en: "I'm passionate about writing clean code, caring about performance, and building architectures that scale well. I work with RxJS and NgRx daily, and I enjoy collaborating on teams where business ideas become technical solutions that actually work.",
+      es: 'Experto en gestión de estados complejos con RxJS y Redux. Fuera del código profesional, canalizo mi creatividad a través de DHung Labs, mi sello personal para el desarrollo de videojuegos indie.',
+      en: 'Expert in complex state management with RxJS and Redux. Outside of professional work, I channel my creativity through DHung Labs, my personal brand for indie game development.',
     },
     'about.stack': { es: 'Stack Principal', en: 'Core Stack' },
 
@@ -82,10 +82,10 @@ export class I18nService {
       es: 'Explorando el desarrollo móvil multiplataforma con Ionic y React Native.',
       en: 'Exploring cross-platform mobile development with Ionic and React Native.',
     },
-    'projects.games.title': { es: 'Juegos', en: 'Games' },
+    'projects.games.title': { es: 'DHung Labs', en: 'DHung Labs' },
     'projects.games.desc': {
-      es: 'Experimentos y proyectos personales con Unity. Porque crear también puede ser divertido.',
-      en: 'Experiments and personal projects with Unity. Because building things can also be fun.',
+      es: 'Ideas que cobran vida, un pixel a la vez. Videojuegos indie desarrollados con Unity bajo mi sello personal.',
+      en: 'Ideas come alive, one pixel at a time. Indie games developed with Unity under my personal brand.',
     },
 
     'tech.title': { es: 'Stack Tecnológico', en: 'Tech Stack' },
