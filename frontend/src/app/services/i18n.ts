@@ -13,6 +13,7 @@ export class I18nService {
     'nav.services': { es: 'Servicios', en: 'Services' },
     'nav.projects': { es: 'Proyectos', en: 'Projects' },
     'nav.tech': { es: 'Tecnologías', en: 'Technologies' },
+    'nav.experience': { es: 'Experiencia', en: 'Experience' },
     'nav.contact': { es: 'Contacto', en: 'Contact' },
 
     'hero.greeting': { es: 'Hola, soy', en: "Hi, I'm" },
@@ -72,21 +73,19 @@ export class I18nService {
     'projects.title': { es: 'Proyectos', en: 'Projects' },
     'projects.subtitle': { es: 'En lo que estoy trabajando y lo que viene', en: "What I'm working on and what's next" },
     'projects.coming': { es: 'Próximamente', en: 'Coming Soon' },
-    'projects.web.title': { es: 'Aplicaciones Web', en: 'Web Applications' },
-    'projects.web.desc': {
-      es: 'Proyectos frontend con Angular, arquitecturas escalables y experiencias de usuario cuidadas.',
-      en: 'Frontend projects with Angular, scalable architectures, and polished user experiences.',
+    'projects.apps.title': { es: 'Web & Apps', en: 'Web & Apps' },
+    'projects.apps.desc': {
+      es: 'Aplicaciones web y móviles con Angular, Ionic y más. Proyectos profesionales y personales.',
+      en: 'Web and mobile applications with Angular, Ionic, and more. Professional and personal projects.',
     },
-    'projects.mobile.title': { es: 'Apps Móviles', en: 'Mobile Apps' },
-    'projects.mobile.desc': {
-      es: 'Explorando el desarrollo móvil multiplataforma con Ionic y React Native.',
-      en: 'Exploring cross-platform mobile development with Ionic and React Native.',
-    },
-    'projects.games.title': { es: 'Dhung Labs', en: 'Dhung Labs' },
-    'projects.games.desc': {
+    'projects.labs.title': { es: 'Dhung Labs', en: 'Dhung Labs' },
+    'projects.labs.desc': {
       es: 'Construyendo lo que imaginamos. Videojuegos indie desarrollados con Unity bajo mi sello personal.',
       en: 'Building what we imagine. Indie games developed with Unity under my personal brand.',
     },
+
+    'experience.title': { es: 'Experiencia', en: 'Experience' },
+    'experience.subtitle': { es: 'Mi trayectoria profesional', en: 'My professional journey' },
 
     'tech.title': { es: 'Stack Tecnológico', en: 'Tech Stack' },
     'tech.subtitle': { es: 'Herramientas con las que trabajo', en: 'Tools I work with' },

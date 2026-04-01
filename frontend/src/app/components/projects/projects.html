@@ -7,12 +7,12 @@
       {{ 'projects.subtitle' | translate }}
     </p>
 
-    <!-- Category cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Two category cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       @for (cat of categories; track cat.key; let i = $index) {
         <div
           appScrollAnimate [delay]="i * 150"
-          class="rounded-2xl border p-7 transition-all duration-300 flex flex-col min-h-[280px]"
+          class="rounded-2xl border p-8 transition-all duration-300 flex flex-col min-h-[280px]"
           [class]="cardStyle()"
           [class.hover:-translate-y-1]="hasProjects(cat.key)"
           [class.hover:shadow-lg]="hasProjects(cat.key)"
@@ -20,7 +20,6 @@
           [class.opacity-70]="!hasProjects(cat.key)"
           (click)="openCategory(cat.key)"
         >
-          <!-- Header -->
           <div class="flex items-center justify-between mb-5">
             <span class="text-4xl" [innerHTML]="cat.icon"></span>
             @if (hasProjects(cat.key)) {
@@ -34,17 +33,14 @@
             }
           </div>
 
-          <!-- Title -->
           <h3 class="font-heading text-xl mb-3" [class]="titleColor()">
             {{ cat.titleKey | translate }}
           </h3>
 
-          <!-- Description -->
           <p class="text-sm leading-relaxed flex-1" [class]="cardDesc()">
             {{ cat.descKey | translate }}
           </p>
 
-          <!-- Action hint -->
           @if (hasProjects(cat.key)) {
             <div class="mt-5 pt-4 border-t" [class]="theme.isDark() ? 'border-dark-border' : 'border-light-border'">
               <span class="text-sm font-medium text-accent">
@@ -58,8 +54,7 @@
   </div>
 </section>
 
-<!-- Project Modal -->
-@if (activeCategory() && activeCategoryData()) {
+@if (activeGroup() && activeCategoryData()) {
   <app-project-modal
     [projects]="activeProjects()"
     [categoryTitle]="activeCategoryData()!.titleKey | translate"

@@ -1,13 +1,12 @@
 import { Component, input, output, signal, inject, computed, HostListener } from '@angular/core';
 import { ThemeService } from '../../services/theme';
 import { I18nService } from '../../services/i18n';
-import { ImageCarousel } from '../image-carousel/image-carousel';
 import { Lightbox } from '../lightbox/lightbox';
 import { Project } from '../../models/project';
 
 @Component({
   selector: 'app-project-modal',
-  imports: [ImageCarousel, Lightbox],
+  imports: [Lightbox],
   templateUrl: './project-modal.html',
 })
 export class ProjectModal {
@@ -24,7 +23,7 @@ export class ProjectModal {
   protected readonly showLightbox = signal(false);
 
   protected readonly overlayBg = computed(() =>
-    this.theme.isDark() ? 'bg-dark-bg/98' : 'bg-light-bg/98',
+    this.theme.isDark() ? 'bg-dark-bg/60' : 'bg-light-bg/60',
   );
   protected readonly cardStyle = computed(() =>
     this.theme.isDark() ? 'bg-dark-card border-dark-border' : 'bg-light-card border-light-border',

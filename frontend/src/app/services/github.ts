@@ -23,13 +23,42 @@ const TOPIC_MAP: Record<string, ProjectCategory> = {
   'portfolio-game': 'game',
 };
 
+const EXTERNAL_PROJECTS: Project[] = [
+  {
+    name: 'Magnetic Suite',
+    description: 'Plataforma SaaS empresarial. Responsable del rediseño de módulos core, integración de IA Generativa y refactorización de arquitectura con RxJS y Redux.',
+    url: 'https://magneticsuite.com/',
+    homepage: 'https://magneticsuite.com/',
+    language: 'Angular',
+    topics: ['angular', 'rxjs', 'redux', 'ai', 'saas'],
+    category: 'web',
+    stars: 0,
+    updatedAt: '2026-04-01',
+    images: [],
+    featured: true,
+  },
+  {
+    name: 'Tikket',
+    description: 'Sistema de gestión de tickets y atención al cliente. Contribución en el desarrollo frontend con Angular, optimización de rendimiento y experiencia de usuario.',
+    url: 'https://www.tikket.net/es',
+    homepage: 'https://www.tikket.net/es',
+    language: 'Angular',
+    topics: ['angular', 'typescript', 'saas'],
+    category: 'web',
+    stars: 0,
+    updatedAt: '2026-04-01',
+    images: [],
+    featured: true,
+  },
+];
+
 @Injectable({ providedIn: 'root' })
 export class GithubService {
   private readonly http = inject(HttpClient);
   private readonly GITHUB_USER = 'dev-dhung';
   private readonly API_URL = `https://api.github.com/users/${this.GITHUB_USER}/repos`;
 
-  readonly projects = signal<Project[]>([]);
+  readonly projects = signal<Project[]>([...EXTERNAL_PROJECTS]);
   readonly loaded = signal(false);
 
   readonly webProjects = computed(() => this.projects().filter((p) => p.category === 'web'));
@@ -47,7 +76,11 @@ export class GithubService {
         tap(() => this.loaded.set(true)),
         takeUntilDestroyed(),
       )
-      .subscribe((projects) => this.projects.set(projects));
+      .subscribe((githubProjects) => {
+        const featured = [...EXTERNAL_PROJECTS, ...githubProjects.filter((p) => p.featured)];
+        const rest = githubProjects.filter((p) => !p.featured);
+        this.projects.set([...featured, ...rest]);
+      });
   }
 
   private enrichWithMeta(repos: GitHubRepo[]) {
@@ -62,13 +95,7 @@ export class GithubService {
       );
     });
 
-    return forkJoin(requests).pipe(
-      map((projects) => {
-        const featured = projects.filter((p) => p.featured);
-        const rest = projects.filter((p) => !p.featured);
-        return [...featured, ...rest];
-      }),
-    );
+    return forkJoin(requests);
   }
 
   private toProject(repo: GitHubRepo, meta: PortfolioMeta): Project {

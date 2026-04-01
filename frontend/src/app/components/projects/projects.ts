@@ -5,10 +5,12 @@ import { I18nService } from '../../services/i18n';
 import { TranslatePipe } from '../../pipes/translate-pipe';
 import { ScrollAnimate } from '../../directives/scroll-animate';
 import { ProjectModal } from '../project-modal/project-modal';
-import { Project, ProjectCategory } from '../../models/project';
+import { Project } from '../../models/project';
+
+type GroupKey = 'apps' | 'labs';
 
 interface CategoryCard {
-  key: ProjectCategory;
+  key: GroupKey;
   titleKey: string;
   descKey: string;
   icon: string;
@@ -24,22 +26,30 @@ export class Projects {
   protected readonly github = inject(GithubService);
   protected readonly i18n = inject(I18nService);
 
-  protected readonly activeCategory = signal<ProjectCategory | null>(null);
+  protected readonly activeGroup = signal<GroupKey | null>(null);
 
   protected readonly categories: CategoryCard[] = [
-    { key: 'web', titleKey: 'projects.web.title', descKey: 'projects.web.desc', icon: '&#127760;' },
-    { key: 'mobile', titleKey: 'projects.mobile.title', descKey: 'projects.mobile.desc', icon: '&#128241;' },
-    { key: 'game', titleKey: 'projects.games.title', descKey: 'projects.games.desc', icon: '&#128126;' },
+    { key: 'apps', titleKey: 'projects.apps.title', descKey: 'projects.apps.desc', icon: '&#128187;' },
+    { key: 'labs', titleKey: 'projects.labs.title', descKey: 'projects.labs.desc', icon: '&#128126;' },
   ];
 
+  private readonly appProjects = computed(() =>
+    this.github.projects().filter((p) => p.category === 'web' || p.category === 'mobile'),
+  );
+
+  private readonly labProjects = computed(() =>
+    this.github.projects().filter((p) => p.category === 'game'),
+  );
+
   protected readonly activeProjects = computed(() => {
-    const cat = this.activeCategory();
-    if (!cat) return [];
-    return this.github.projects().filter((p) => p.category === cat);
+    const group = this.activeGroup();
+    if (group === 'apps') return this.appProjects();
+    if (group === 'labs') return this.labProjects();
+    return [];
   });
 
   protected readonly activeCategoryData = computed(() =>
-    this.categories.find((c) => c.key === this.activeCategory()) ?? null,
+    this.categories.find((c) => c.key === this.activeGroup()) ?? null,
   );
 
   protected readonly titleColor = computed(() => this.theme.isDark() ? 'text-dark-text' : 'text-light-text');
@@ -50,25 +60,22 @@ export class Projects {
       : 'bg-light-card border-light-border hover:border-accent-light hover:bg-light-card-hover',
   );
   protected readonly cardDesc = computed(() => this.theme.isDark() ? 'text-dark-text-secondary' : 'text-light-text-secondary');
-  protected readonly tagStyle = computed(() =>
-    this.theme.isDark() ? 'bg-dark-card-hover text-dark-text-muted' : 'bg-light-surface text-light-text-muted',
-  );
 
-  protected projectCount(category: ProjectCategory): number {
-    return this.github.projects().filter((p) => p.category === category).length;
+  protected projectCount(group: GroupKey): number {
+    return group === 'apps' ? this.appProjects().length : this.labProjects().length;
   }
 
-  protected hasProjects(category: ProjectCategory): boolean {
-    return this.projectCount(category) > 0;
+  protected hasProjects(group: GroupKey): boolean {
+    return this.projectCount(group) > 0;
   }
 
-  protected openCategory(category: ProjectCategory): void {
-    if (this.hasProjects(category)) {
-      this.activeCategory.set(category);
+  protected openCategory(group: GroupKey): void {
+    if (this.hasProjects(group)) {
+      this.activeGroup.set(group);
     }
   }
 
   protected closeModal(): void {
-    this.activeCategory.set(null);
+    this.activeGroup.set(null);
   }
 }

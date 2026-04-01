@@ -4,6 +4,7 @@ import { Navbar } from './components/navbar/navbar';
 import { Hero } from './components/hero/hero';
 import { About } from './components/about/about';
 import { Services } from './components/services/services';
+import { Experience } from './components/experience/experience';
 import { Projects } from './components/projects/projects';
 import { TechStack } from './components/tech-stack/tech-stack';
 import { Contact } from './components/contact/contact';
@@ -12,7 +13,7 @@ import { ThemeService } from './services/theme';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar, Hero, About, Services, Projects, TechStack, Contact, Footer],
+  imports: [RouterOutlet, Navbar, Hero, About, Services, Experience, Projects, TechStack, Contact, Footer],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

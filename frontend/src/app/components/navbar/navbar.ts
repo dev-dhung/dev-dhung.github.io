@@ -22,6 +22,7 @@ export class Navbar {
   protected readonly links: NavLink[] = [
     { href: '#about', key: 'nav.about' },
     { href: '#services', key: 'nav.services' },
+    { href: '#experience', key: 'nav.experience' },
     { href: '#projects', key: 'nav.projects' },
     { href: '#tech', key: 'nav.tech' },
     { href: '#contact', key: 'nav.contact' },
