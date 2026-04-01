@@ -23,7 +23,7 @@ export class ProjectModal {
   protected readonly showLightbox = signal(false);
 
   protected readonly overlayBg = computed(() =>
-    this.theme.isDark() ? 'bg-dark-bg/60' : 'bg-light-bg/60',
+    this.theme.isDark() ? 'bg-dark-bg/30' : 'bg-light-bg/30',
   );
   protected readonly cardStyle = computed(() =>
     this.theme.isDark() ? 'bg-dark-card border-dark-border' : 'bg-light-card border-light-border',
