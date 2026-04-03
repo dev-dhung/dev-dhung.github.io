@@ -23,8 +23,8 @@ export class Hero implements OnInit, OnDestroy {
 
   protected readonly phrases = computed<string[]>(() =>
     this.i18n.isEs()
-      ? ['Especialista en Angular & RxJS', 'Desarrollo de Apps Escalables', 'Creando mundos en Unity', 'De la web al bolsillo']
-      : ['Angular & RxJS Specialist', 'Scalable App Development', 'Building worlds in Unity', 'From web to pocket'],
+      ? ['Angular & React | Interfaces de alto rendimiento', 'Mobile Dev con Flutter', 'Desarrollo impulsado por IA', 'Creando mundos en Unity']
+      : ['Angular & React | High-Performance UIs', 'Mobile Dev with Flutter', 'AI-Driven Development', 'Building worlds in Unity'],
   );
 
   protected readonly heroBg = computed(() =>

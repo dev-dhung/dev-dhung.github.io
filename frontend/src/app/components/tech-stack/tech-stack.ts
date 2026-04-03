@@ -17,10 +17,11 @@ export class TechStack {
   protected readonly theme = inject(ThemeService);
 
   protected readonly categories: TechCategory[] = [
-    { labelKey: 'tech.frontend', items: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'Tailwind CSS', 'Bootstrap', 'HTML5', 'CSS3/SCSS', 'JavaScript'] },
-    { labelKey: 'tech.backend', items: ['Node.js', 'Express', 'MongoDB', 'PHP', 'MySQL', 'REST APIs', 'Cloudinary'] },
+    { labelKey: 'tech.frontend', items: ['Angular (12-19)', 'React JS', 'TypeScript', 'RxJS', 'NgRx', 'Redux', 'Tailwind CSS', 'Bootstrap', 'HTML5', 'CSS3/SCSS', 'JavaScript'] },
+    { labelKey: 'tech.mobile', items: ['Flutter', 'Ionic'] },
+    { labelKey: 'tech.backend', items: ['Node.js', 'Express', 'MongoDB', 'MySQL', 'REST APIs', 'Cloudinary'] },
     { labelKey: 'tech.tools', items: ['Git', 'VS Code', 'Figma', 'Postman', 'Chrome DevTools'] },
-    { labelKey: 'tech.learning', items: ['React Native', 'Ionic', 'Flutter', 'NestJS', 'Unity', 'C#'] },
+    { labelKey: 'tech.learning', items: ['Unity', 'C#'] },
   ];
 
   protected readonly titleColor = computed(() => this.theme.isDark() ? 'text-dark-text' : 'text-light-text');

@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="#1a1a1a"/>
-  <text x="600" y="260" text-anchor="middle" font-family="system-ui,sans-serif" font-size="72" font-weight="700" fill="#f5f0eb">Diego <tspan fill="#c9a96e">Hung</tspan></text>
-  <text x="600" y="320" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" fill="#c4b9ad">Frontend Developer</text>
-  <text x="600" y="370" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" fill="#8a7f73">Angular · RxJS · NgRx · MEAN Stack</text>
+  <text x="600" y="240" text-anchor="middle" font-family="system-ui,sans-serif" font-size="72" font-weight="700" fill="#f5f0eb">Diego <tspan fill="#c9a96e">Hung</tspan></text>
+  <text x="600" y="300" text-anchor="middle" font-family="system-ui,sans-serif" font-size="24" fill="#c4b9ad">Frontend Developer (Angular / React) | Mobile Dev with Flutter</text>
+  <text x="600" y="350" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" fill="#8a7f73">Architecting High-Performance User Interfaces</text>
   <text x="600" y="520" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" fill="#c9a96e">dev-dhung.github.io</text>
 </svg>

@@ -17,23 +17,23 @@ export class I18nService {
     'nav.contact': { es: 'Contacto', en: 'Contact' },
 
     'hero.greeting': { es: 'Hola, soy', en: "Hi, I'm" },
-    'hero.title': { es: 'Frontend Developer', en: 'Frontend Developer' },
+    'hero.title': { es: 'Frontend Developer (Angular / React) | Mobile Dev with Flutter', en: 'Frontend Developer (Angular / React) | Mobile Dev with Flutter' },
     'hero.cta': { es: 'Contáctame', en: 'Get in Touch' },
     'hero.cv': { es: 'Descargar CV', en: 'Download CV' },
 
     'about.title': { es: 'Sobre Mí', en: 'About Me' },
     'about.subtitle': { es: 'Un poco de mi camino', en: 'A bit about my journey' },
     'about.p1': {
-      es: 'Ingeniero Frontend con experiencia transformando requisitos complejos en soluciones robustas y escalables dentro del ecosistema Angular. Mi trayectoria combina una sólida base en tecnologías de servidor (Node, MySQL) con una especialización avanzada en el lado del cliente, lo que me otorga una visión integral del ciclo de vida del software.',
-      en: 'Frontend Engineer with experience transforming complex requirements into robust, scalable solutions within the Angular ecosystem. My background combines a solid foundation in server-side technologies (Node, MySQL) with advanced client-side specialization, giving me a comprehensive view of the software lifecycle.',
+      es: 'Frontend Developer enfocado en transformar requisitos complejos en soluciones robustas y escalables. Mi especialización reside en el ecosistema de Angular y React, con un dominio avanzado en la gestión de estados mediante RxJS y Redux.',
+      en: 'Frontend Developer focused on transforming complex requirements into robust and scalable solutions. My core expertise lies within the Angular and React ecosystems, with advanced proficiency in state management using RxJS and Redux.',
     },
     'about.p2': {
-      es: 'Actualmente, lidero la modernización de arquitecturas de alto rendimiento y la integración de Inteligencia Artificial Generativa para la automatización de flujos de trabajo.',
-      en: 'Currently, I lead the modernization of high-performance architectures and the integration of Generative Artificial Intelligence for workflow automation.',
+      es: 'Mi enfoque actual combina la solidez del desarrollo web con la agilidad de las nuevas tecnologías móviles y la eficiencia moderna: diseño de UIs de alto rendimiento, desarrollo móvil con Flutter aplicando patrones reactivos, e integración de Inteligencia Artificial Generativa para optimizar flujos de trabajo.',
+      en: 'My current approach bridges the gap between solid web development, the agility of modern mobile technologies, and cutting-edge efficiency: designing high-performance UIs, mobile development with Flutter using reactive patterns, and integrating Generative AI tools to optimize workflows.',
     },
     'about.p3': {
-      es: 'Experto en gestión de estados complejos con RxJS y Redux. Fuera del código profesional, canalizo mi creatividad a través de Dhung Labs, mi sello personal para el desarrollo de videojuegos indie.',
-      en: 'Expert in complex state management with RxJS and Redux. Outside of professional work, I channel my creativity through Dhung Labs, my personal brand for indie game development.',
+      es: 'Mi experiencia con tecnologías como Node y MySQL me permite colaborar de manera efectiva en todo el ciclo de vida del software. Me motiva la búsqueda de la excelencia técnica y la creación de productos digitales que aporten valor real. Fuera del código profesional, canalizo mi creatividad a través de Dhung Labs, mi sello personal para el desarrollo de videojuegos indie.',
+      en: 'My experience with backend technologies like Node.js and MySQL allows me to collaborate effectively across the entire software lifecycle. I am driven by the pursuit of technical excellence and the creation of digital products that deliver real value. Outside of professional work, I channel my creativity through Dhung Labs, my personal brand for indie game development.',
     },
     'about.stack': { es: 'Stack Principal', en: 'Core Stack' },
 
@@ -51,8 +51,8 @@ export class I18nService {
     },
     'services.mobile.title': { es: 'Desarrollo Móvil', en: 'Mobile Development' },
     'services.mobile.desc': {
-      es: 'Apps móviles multiplataforma con Ionic y React Native. Llevando la experiencia web al bolsillo de tus usuarios.',
-      en: "Cross-platform mobile apps with Ionic and React Native. Bringing the web experience to your users' pockets.",
+      es: 'Apps móviles multiplataforma con Flutter e Ionic. Aplicando patrones reactivos para mantener la calidad del entorno web.',
+      en: 'Cross-platform mobile apps with Flutter and Ionic. Applying reactive patterns to maintain web environment quality.',
     },
     'services.api.title': { es: 'Integración de APIs', en: 'API Integration' },
     'services.api.desc': {
@@ -90,6 +90,7 @@ export class I18nService {
     'tech.title': { es: 'Stack Tecnológico', en: 'Tech Stack' },
     'tech.subtitle': { es: 'Herramientas con las que trabajo', en: 'Tools I work with' },
     'tech.frontend': { es: 'Frontend', en: 'Frontend' },
+    'tech.mobile': { es: 'Mobile', en: 'Mobile' },
     'tech.backend': { es: 'Backend', en: 'Backend' },
     'tech.tools': { es: 'Herramientas', en: 'Tools' },
     'tech.learning': { es: 'Explorando', en: 'Exploring' },
