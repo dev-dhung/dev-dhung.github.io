@@ -10,7 +10,7 @@ import { ScrollAnimate } from '../../directives/scroll-animate';
 })
 export class About {
   protected readonly theme = inject(ThemeService);
-  protected readonly stack = ['Angular', 'React', 'TypeScript', 'RxJS', 'Redux', 'Flutter', 'Ionic'] as const;
+  protected readonly stack = ['Angular', 'React', 'TypeScript', 'RxJS', 'Redux', 'Flutter', 'Node.js'] as const;
   protected readonly paragraphs = ['about.p1', 'about.p2', 'about.p3'] as const;
 
   protected readonly titleColor = computed(() => this.theme.isDark() ? 'text-dark-text' : 'text-light-text');

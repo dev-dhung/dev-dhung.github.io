@@ -17,23 +17,26 @@ export class I18nService {
     'nav.contact': { es: 'Contacto', en: 'Contact' },
 
     'hero.greeting': { es: 'Hola, soy', en: "Hi, I'm" },
-    'hero.title': { es: 'Frontend Developer (Angular / React) | Mobile Dev with Flutter', en: 'Frontend Developer (Angular / React) | Mobile Dev with Flutter' },
+    'hero.title': {
+      es: 'Software Developer | Especialista en Angular & React | RxJS, Redux & Clean Architecture | Interfaces de Alto Rendimiento e IA',
+      en: 'Software Developer | Angular & React Specialist | RxJS, Redux & Clean Architecture | High-Performance UIs & AI',
+    },
     'hero.cta': { es: 'Contáctame', en: 'Get in Touch' },
     'hero.cv': { es: 'Descargar CV', en: 'Download CV' },
 
     'about.title': { es: 'Sobre Mí', en: 'About Me' },
     'about.subtitle': { es: 'Un poco de mi camino', en: 'A bit about my journey' },
     'about.p1': {
-      es: 'Frontend Developer enfocado en transformar requisitos complejos en soluciones robustas y escalables. Mi especialización reside en el ecosistema de Angular y React, con un dominio avanzado en la gestión de estados mediante RxJS y Redux.',
-      en: 'Frontend Developer focused on transforming complex requirements into robust and scalable solutions. My core expertise lies within the Angular and React ecosystems, with advanced proficiency in state management using RxJS and Redux.',
+      es: 'Software Developer con dominio avanzado en el ecosistema de Angular (12-19) y React, especializado en la arquitectura de interfaces de alto rendimiento y gestión de estados complejos con RxJS y Redux.',
+      en: 'Software Developer with advanced proficiency in the Angular (12-19) and React ecosystems, specializing in high-performance UI architecture and complex state management using RxJS and Redux.',
     },
     'about.p2': {
-      es: 'Mi enfoque actual combina la solidez del desarrollo web con la agilidad de las nuevas tecnologías móviles y la eficiencia moderna: diseño de UIs de alto rendimiento, desarrollo móvil con Flutter aplicando patrones reactivos, e integración de Inteligencia Artificial Generativa para optimizar flujos de trabajo.',
-      en: 'My current approach bridges the gap between solid web development, the agility of modern mobile technologies, and cutting-edge efficiency: designing high-performance UIs, mobile development with Flutter using reactive patterns, and integrating Generative AI tools to optimize workflows.',
+      es: 'Mi trayectoria incluye la digitalización de procesos administrativos para miles de usuarios y el rediseño de sistemas core bajo arquitecturas escalables. Cuento con una visión técnica integral que abarca el desarrollo móvil con Flutter e Ionic, así como la implementación de servicios Node.js y bases de datos SQL/NoSQL.',
+      en: 'My professional background includes the digitalization of administrative processes for thousands of users and the redesign of core systems under scalable architectures. I offer a comprehensive technical vision that spans mobile development with Flutter and Ionic, as well as the implementation of Node.js services and SQL/NoSQL databases.',
     },
     'about.p3': {
-      es: 'Mi experiencia con tecnologías como Node y MySQL me permite colaborar de manera efectiva en todo el ciclo de vida del software. Me motiva la búsqueda de la excelencia técnica y la creación de productos digitales que aporten valor real. Fuera del código profesional, canalizo mi creatividad a través de Dhung Labs, mi sello personal para el desarrollo de videojuegos indie.',
-      en: 'My experience with backend technologies like Node.js and MySQL allows me to collaborate effectively across the entire software lifecycle. I am driven by the pursuit of technical excellence and the creation of digital products that deliver real value. Outside of professional work, I channel my creativity through Dhung Labs, my personal brand for indie game development.',
+      es: 'Me motiva la búsqueda de la excelencia técnica y la creación de productos digitales que aporten valor real a través de un código limpio y eficiente. Fuera del código profesional, canalizo mi creatividad a través de Dhung Labs, mi sello personal para el desarrollo de videojuegos indie.',
+      en: 'I am driven by the pursuit of technical excellence and the creation of digital products that deliver real value through clean, efficient code. Outside of professional work, I channel my creativity through Dhung Labs, my personal brand for indie game development.',
     },
     'about.stack': { es: 'Stack Principal', en: 'Core Stack' },
 

@@ -17,10 +17,10 @@ export class TechStack {
   protected readonly theme = inject(ThemeService);
 
   protected readonly categories: TechCategory[] = [
-    { labelKey: 'tech.frontend', items: ['Angular (12-19)', 'React JS', 'TypeScript', 'RxJS', 'NgRx', 'Redux', 'Tailwind CSS', 'Bootstrap', 'HTML5', 'CSS3/SCSS', 'JavaScript'] },
-    { labelKey: 'tech.mobile', items: ['Flutter', 'Ionic'] },
-    { labelKey: 'tech.backend', items: ['Node.js', 'Express', 'MongoDB', 'MySQL', 'REST APIs', 'Cloudinary'] },
-    { labelKey: 'tech.tools', items: ['Git', 'VS Code', 'Figma', 'Postman', 'Chrome DevTools'] },
+    { labelKey: 'tech.frontend', items: ['Angular (12-19)', 'React', 'TypeScript', 'JavaScript (ES6+)', 'RxJS', 'Redux', 'Tailwind CSS', 'Bootstrap'] },
+    { labelKey: 'tech.mobile', items: ['Flutter', 'Dart', 'Ionic', 'Kotlin (Android)', 'BrightScript (Roku)'] },
+    { labelKey: 'tech.backend', items: ['Node.js', 'PHP', 'Java', 'Python', 'MySQL', 'MongoDB', 'REST APIs'] },
+    { labelKey: 'tech.tools', items: ['Git', 'Posthog', 'IA Generativa', 'VS Code', 'Figma', 'Postman'] },
     { labelKey: 'tech.learning', items: ['Unity', 'C#'] },
   ];
 
