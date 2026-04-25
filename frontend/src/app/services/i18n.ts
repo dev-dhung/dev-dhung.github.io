@@ -18,8 +18,8 @@ export class I18nService {
 
     'hero.greeting': { es: 'Hola, soy', en: "Hi, I'm" },
     'hero.title': {
-      es: 'Software Developer | Especialista en Angular & React | RxJS, Redux & Clean Architecture | Interfaces de Alto Rendimiento e IA',
-      en: 'Software Developer | Angular & React Specialist | RxJS, Redux & Clean Architecture | High-Performance UIs & AI',
+      es: 'Senior Frontend Engineer | Especialista en Angular & React | AI Implementation',
+      en: 'Senior Frontend Engineer | Angular & React Specialist | AI Implementation',
     },
     'hero.cta': { es: 'Contáctame', en: 'Get in Touch' },
     'hero.cv': { es: 'Descargar CV', en: 'Download CV' },
@@ -27,12 +27,12 @@ export class I18nService {
     'about.title': { es: 'Sobre Mí', en: 'About Me' },
     'about.subtitle': { es: 'Un poco de mi camino', en: 'A bit about my journey' },
     'about.p1': {
-      es: 'Software Developer con dominio avanzado en el ecosistema de Angular (12-19) y React, especializado en la arquitectura de interfaces de alto rendimiento y gestión de estados complejos con RxJS y Redux.',
-      en: 'Software Developer with advanced proficiency in the Angular (12-19) and React ecosystems, specializing in high-performance UI architecture and complex state management using RxJS and Redux.',
+      es: 'Ingeniero de Sistemas y Desarrollador Frontend con sólida trayectoria en el ecosistema de Angular (12-19) y React. Especializado en la arquitectura de interfaces de alto rendimiento y la gestión de estados complejos mediante RxJS y Redux.',
+      en: 'Systems Engineer and Frontend Developer with a solid track record in the Angular (12-19) and React ecosystems. Specialized in high-performance interface architecture and complex state management using RxJS and Redux.',
     },
     'about.p2': {
-      es: 'Mi trayectoria incluye la digitalización de procesos administrativos para miles de usuarios y el rediseño de sistemas core bajo arquitecturas escalables. Cuento con una visión técnica integral que abarca el desarrollo móvil con Flutter e Ionic, así como la implementación de servicios Node.js y bases de datos SQL/NoSQL.',
-      en: 'My professional background includes the digitalization of administrative processes for thousands of users and the redesign of core systems under scalable architectures. I offer a comprehensive technical vision that spans mobile development with Flutter and Ionic, as well as the implementation of Node.js services and SQL/NoSQL databases.',
+      es: 'He liderado con éxito la modernización de sistemas core y la digitalización de procesos administrativos, logrando soluciones escalables que impactan a miles de usuarios. Mi enfoque técnico integral combina el desarrollo móvil con Flutter/Ionic, la implementación de servicios en Node.js y la integración de IA Generativa para la optimización de flujos de trabajo.',
+      en: 'I have successfully led the modernization of core systems and the digitization of administrative processes, achieving scalable solutions that impact thousands of users. My comprehensive technical approach combines mobile development with Flutter/Ionic, the implementation of services in Node.js, and the integration of Generative AI for workflow optimization.',
     },
     'about.p3': {
       es: 'Me motiva la búsqueda de la excelencia técnica y la creación de productos digitales que aporten valor real a través de un código limpio y eficiente. Fuera del código profesional, canalizo mi creatividad a través de Dhung Labs, mi sello personal para el desarrollo de videojuegos indie.',
@@ -94,7 +94,8 @@ export class I18nService {
     'tech.subtitle': { es: 'Herramientas con las que trabajo', en: 'Tools I work with' },
     'tech.frontend': { es: 'Frontend', en: 'Frontend' },
     'tech.mobile': { es: 'Mobile', en: 'Mobile' },
-    'tech.backend': { es: 'Backend', en: 'Backend' },
+    'tech.backend': { es: 'Backend & IA', en: 'Backend & AI' },
+    'tech.databases': { es: 'Bases de Datos', en: 'Databases' },
     'tech.tools': { es: 'Herramientas', en: 'Tools' },
     'tech.learning': { es: 'Explorando', en: 'Exploring' },
 

@@ -23,66 +23,62 @@ export class Experience {
 
   protected readonly jobs: Job[] = [
     {
-      role: { es: 'Desarrollador Frontend', en: 'Frontend Developer' },
+      role: { es: 'Frontend Engineer | Angular & AI Implementation', en: 'Frontend Engineer | Angular & AI Implementation' },
       company: 'Magnetic',
       location: { es: 'Remoto', en: 'Remote' },
       period: { es: 'Mar. 2024 - Mar. 2026', en: 'Mar 2024 - Mar 2026' },
       highlights: [
         {
-          es: 'Lideré el rediseño y migración de módulos legacy hacia una arquitectura escalable, garantizando compatibilidad entre versiones.',
-          en: 'Led the redesign and migration of legacy modules toward a scalable architecture, ensuring cross-version compatibility.',
+          es: 'Lideré la migración estratégica de módulos legacy hacia Angular 19, reduciendo la deuda técnica en un 20% y facilitando la escalabilidad del producto.',
+          en: 'Led the strategic migration of legacy modules to Angular 19, reducing technical debt by 20% and facilitating product scalability.',
         },
         {
-          es: 'Refactorización integral de lógica asíncrona y flujos de datos complejos con RxJS y Redux, eliminando cuellos de botella.',
-          en: 'Comprehensive refactoring of asynchronous logic and complex data flows using RxJS and Redux, eliminating bottlenecks.',
+          es: 'Optimicé el rendimiento refactorizando flujos de datos complejos con RxJS y Redux, eliminando cuellos de botella en estados asíncronos.',
+          en: 'Optimized performance by refactoring complex data flows with RxJS and Redux, eliminating bottlenecks in asynchronous state management.',
         },
         {
-          es: 'Integración de módulos con APIs externas, incluyendo Posthog para rastreo estratégico de eventos y análisis del comportamiento del usuario.',
-          en: 'Integrated modules with external APIs, including Posthog for strategic event tracking and user behavior analysis.',
+          es: 'Arquitecté e integré módulos de IA Generativa, automatizando procesos internos y mejorando la precisión del sistema.',
+          en: 'Architected and integrated Generative AI modules, automating internal processes and improving system accuracy.',
         },
         {
-          es: 'Diseño de módulos basados en IA Generativa, automatizando procesos críticos y personalizando la experiencia del usuario.',
-          en: 'Designed Generative AI-based modules, automating critical processes and personalizing the user experience.',
+          es: 'Desarrollé interfaces de alta fidelidad con Tailwind CSS e integré Posthog para telemetría y decisiones basadas en datos.',
+          en: 'Developed high-fidelity interfaces with Tailwind CSS and integrated Posthog for telemetry and data-driven decisions.',
         },
       ],
     },
     {
-      role: { es: 'Desarrollador Fullstack', en: 'Fullstack Developer' },
+      role: { es: 'Software Developer (Fullstack & Mobile)', en: 'Software Developer (Fullstack & Mobile)' },
       company: 'Fibex Telecom',
       location: { es: 'Caracas, Venezuela', en: 'Caracas, Venezuela' },
       period: { es: 'Mar. 2022 - Mar. 2024', en: 'Mar 2022 - Mar 2024' },
       highlights: [
         {
-          es: 'Lideré el ciclo de vida completo de la app móvil "Fibex Oficina Móvil" con Ionic y Angular, digitalizando servicios para miles de usuarios.',
-          en: 'Led the full lifecycle of the "Fibex Oficina Móvil" mobile app using Ionic and Angular, digitalizing services for thousands of users.',
+          es: 'Lideré el ciclo de vida completo de la app de streaming para Roku (BrightScript) y Android TV, digitalizando el servicio de TV para miles de suscriptores.',
+          en: 'Led the complete lifecycle of the streaming app for Roku (BrightScript) and Android TV, digitizing the TV service for thousands of subscribers.',
         },
         {
-          es: 'Desarrollo de soluciones de streaming para TV Digital: aplicaciones para Roku (BrightScript) y Android TV (Kotlin/Java).',
-          en: 'Developed streaming solutions for Digital TV: applications for Roku (BrightScript) and Android TV (Kotlin/Java).',
+          es: 'Diseñé y desplegué apps móviles multiplataforma con Flutter e Ionic, integrando geolocalización y pasarelas de pago.',
+          en: 'Designed and deployed cross-platform mobile apps using Flutter and Ionic, integrating geolocation and payment gateways.',
         },
         {
-          es: 'Diseño del sitio web corporativo y mantenimiento de servicios internos con React, PHP y Java.',
-          en: 'Designed the corporate website and maintained internal services using React, PHP, and Java.',
+          es: 'Desarrollé y mantuve APIs robustas en Node.js y PHP, asegurando la integridad de comunicación entre sistemas core e interfaces de usuario.',
+          en: 'Developed and maintained robust APIs in Node.js and PHP, ensuring communication integrity between core systems and user interfaces.',
         },
       ],
     },
     {
-      role: { es: 'Especialista de Procesos Tecnológicos II', en: 'Technology Process Specialist II' },
+      role: { es: 'Analista de Tecnología', en: 'Technology Analyst' },
       company: 'Banco del Tesoro',
       location: { es: 'Caracas, Venezuela', en: 'Caracas, Venezuela' },
       period: { es: 'Mar. 2017 - Mar. 2022', en: 'Mar 2017 - Mar 2022' },
       highlights: [
         {
-          es: 'Gestión de Core Bancario: ejecución y supervisión de cierres bancarios diarios mediante AS/400 (RPG), garantizando la integridad de la data financiera.',
-          en: 'Core Banking Management: executed and supervised daily banking closes using AS/400 (RPG), ensuring financial data integrity.',
+          es: 'Soporte y mantenimiento de procesos financieros críticos mediante AS/400 (RPG), garantizando la integridad de la data y la continuidad operativa.',
+          en: 'Support and maintenance of critical financial processes using AS/400 (RPG), ensuring data integrity and operational continuity.',
         },
         {
-          es: 'Monitoreo de alta disponibilidad de servicios críticos de recaudación y pagos (SENIAT, IGTF, Movilnet).',
-          en: 'High availability monitoring of critical collection and payment services (SENIAT, IGTF, Movilnet).',
-        },
-        {
-          es: 'Control preventivo de infraestructura crítica en Data Center y soporte a canales electrónicos bancarios.',
-          en: 'Preventive control of critical Data Center infrastructure and support for electronic banking channels.',
+          es: 'Supervisión de servicios de recaudación y pagos electrónicos de alta disponibilidad, asegurando niveles óptimos de respuesta para miles de clientes.',
+          en: 'Monitoring of high-availability electronic collection and payment services, ensuring optimal response levels for thousands of clients.',
         },
       ],
     },
