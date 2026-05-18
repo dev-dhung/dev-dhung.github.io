@@ -18,8 +18,8 @@ export class I18nService {
 
     'hero.greeting': { es: 'Hola, soy', en: "Hi, I'm" },
     'hero.title': {
-      es: 'Senior Frontend Engineer | Especialista en Angular & React | AI Implementation',
-      en: 'Senior Frontend Engineer | Angular & React Specialist | AI Implementation',
+      es: 'Ingeniero de Sistemas | Desarrollador Full Stack | Construyendo soluciones escalables con TypeScript, Angular y Node.js',
+      en: 'Systems Engineer | Full Stack Developer | Building Scalable Solutions with TypeScript, Angular, and Node.js',
     },
     'hero.cta': { es: 'Contáctame', en: 'Get in Touch' },
     'hero.cv': { es: 'Descargar CV', en: 'Download CV' },
@@ -27,16 +27,16 @@ export class I18nService {
     'about.title': { es: 'Sobre Mí', en: 'About Me' },
     'about.subtitle': { es: 'Un poco de mi camino', en: 'A bit about my journey' },
     'about.p1': {
-      es: 'Ingeniero de Sistemas y Desarrollador Frontend con sólida trayectoria en el ecosistema de Angular (12-19) y React. Especializado en la arquitectura de interfaces de alto rendimiento y la gestión de estados complejos mediante RxJS y Redux.',
-      en: 'Systems Engineer and Frontend Developer with a solid track record in the Angular (12-19) and React ecosystems. Specialized in high-performance interface architecture and complex state management using RxJS and Redux.',
+      es: 'Mi enfoque se centra en transformar requerimientos complejos en productos digitales que no solo funcionen, sino que sean fáciles de mantener y escalar. Priorizo la arquitectura limpia y el rendimiento, asegurando que cada solución técnica contribuya a la estabilidad del sistema a largo plazo.',
+      en: 'My focus centers on transforming complex requirements into digital products that not only work but are also easy to maintain and scale. I prioritize clean architecture and performance, ensuring that every technical solution contributes to long-term system stability.',
     },
     'about.p2': {
-      es: 'He liderado con éxito la modernización de sistemas core y la digitalización de procesos administrativos, logrando soluciones escalables que impactan a miles de usuarios. Mi enfoque técnico integral combina el desarrollo móvil con Flutter/Ionic, la implementación de servicios en Node.js y la integración de IA Generativa para la optimización de flujos de trabajo.',
-      en: 'I have successfully led the modernization of core systems and the digitization of administrative processes, achieving scalable solutions that impact thousands of users. My comprehensive technical approach combines mobile development with Flutter/Ionic, the implementation of services in Node.js, and the integration of Generative AI for workflow optimization.',
+      es: 'He trabajado en entornos de alta demanda, desde telecomunicaciones hasta el desarrollo de aplicaciones móviles, lo que me ha dado una visión integral para resolver problemas desde múltiples ángulos. Mi flujo de trabajo integra herramientas de IA generativa, lo que me permite optimizar los ciclos de desarrollo y elevar el estándar de entrega sin comprometer la calidad del código.',
+      en: 'I have worked in high-demand environments—ranging from telecommunications to mobile application development—giving me an end-to-end vision to solve technical problems from multiple angles. My workflow integrates Generative AI tools, allowing me to optimize development cycles and raise delivery standards without compromising code quality.',
     },
     'about.p3': {
-      es: 'Me motiva la búsqueda de la excelencia técnica y la creación de productos digitales que aporten valor real a través de un código limpio y eficiente. Fuera del código profesional, canalizo mi creatividad a través de Dhung Labs, mi sello personal para el desarrollo de videojuegos indie.',
-      en: 'I am driven by the pursuit of technical excellence and the creation of digital products that deliver real value through clean, efficient code. Outside of professional work, I channel my creativity through Dhung Labs, my personal brand for indie game development.',
+      es: 'Fuera del código profesional, canalizo mi creatividad a través de DH Studios, mi sello personal para el desarrollo de videojuegos indie, donde combino la disciplina del software con la narrativa interactiva.',
+      en: 'Outside of professional code, I channel my creativity through DH Studios, my personal brand for indie game development, where I combine software discipline with interactive storytelling.',
     },
     'about.stack': { es: 'Stack Principal', en: 'Core Stack' },
 
@@ -81,10 +81,14 @@ export class I18nService {
       es: 'Aplicaciones web y móviles con Angular, Ionic y más. Proyectos profesionales y personales.',
       en: 'Web and mobile applications with Angular, Ionic, and more. Professional and personal projects.',
     },
-    'projects.labs.title': { es: 'Dhung Labs', en: 'Dhung Labs' },
+    'projects.labs.title': { es: 'DH Studios', en: 'DH Studios' },
     'projects.labs.desc': {
-      es: 'Construyendo lo que imaginamos. Videojuegos indie desarrollados con Unity bajo mi sello personal.',
-      en: 'Building what we imagine. Indie games developed with Unity under my personal brand.',
+      es: 'Creatividad impulsada por sistemas. Videojuegos indie desarrollados con Unity bajo mi sello personal.',
+      en: 'Systems Driven Creativity. Indie games developed with Unity under my personal brand.',
+    },
+    'studios.slogan': {
+      es: 'Creatividad impulsada por sistemas',
+      en: 'Systems Driven Creativity',
     },
 
     'experience.title': { es: 'Experiencia', en: 'Experience' },

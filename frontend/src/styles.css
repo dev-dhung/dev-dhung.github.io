@@ -5,28 +5,28 @@
   --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-heading: 'Sora', -apple-system, sans-serif;
 
-  --color-dark-bg: #1a1a1a;
-  --color-dark-surface: #242424;
-  --color-dark-card: #2a2a2a;
-  --color-dark-card-hover: #333333;
-  --color-dark-border: #3a3a3a;
-  --color-dark-text: #f5f0eb;
-  --color-dark-text-secondary: #c4b9ad;
-  --color-dark-text-muted: #8a7f73;
+  --color-dark-bg: #1a2733;
+  --color-dark-surface: #233140;
+  --color-dark-card: #2a3a4c;
+  --color-dark-card-hover: #344658;
+  --color-dark-border: #3a4d5f;
+  --color-dark-text: #ecf0ed;
+  --color-dark-text-secondary: #b8c5c0;
+  --color-dark-text-muted: #7a8a85;
 
-  --color-light-bg: #faf7f2;
-  --color-light-surface: #f0ebe3;
+  --color-light-bg: #f2f6f4;
+  --color-light-surface: #e6ede9;
   --color-light-card: #ffffff;
-  --color-light-card-hover: #f5f0e8;
-  --color-light-border: #e0d8cc;
-  --color-light-text: #2c2c2c;
-  --color-light-text-secondary: #5a5347;
-  --color-light-text-muted: #8a7f73;
+  --color-light-card-hover: #ebf1ed;
+  --color-light-border: #d4ddd8;
+  --color-light-text: #1a2e2c;
+  --color-light-text-secondary: #4a5e5c;
+  --color-light-text-muted: #7a8a85;
 
-  --color-accent: #c9a96e;
-  --color-accent-hover: #d4b97e;
-  --color-accent-soft: rgba(201, 169, 110, 0.1);
-  --color-accent-light: #b8860b;
+  --color-accent: #8fb9aa;
+  --color-accent-hover: #a3c9bc;
+  --color-accent-soft: rgba(143, 185, 170, 0.12);
+  --color-accent-light: #5a8a7a;
 }
 
 html {
@@ -62,4 +62,40 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.dh-logo {
+  transition: transform 0.3s ease;
+}
+
+.dh-logo:hover {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+.dh-logo-frame {
+  animation: dh-frame-glow 3.5s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes dh-frame-glow {
+  0%, 100% {
+    stroke-opacity: 0.55;
+    stroke-width: 1.75;
+  }
+  50% {
+    stroke-opacity: 1;
+    stroke-width: 2;
+  }
+}
+
+.dh-logo-dot {
+  animation: dh-dot-blink 1.8s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes dh-dot-blink {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
 }

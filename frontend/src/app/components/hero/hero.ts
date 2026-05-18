@@ -23,12 +23,12 @@ export class Hero implements OnInit, OnDestroy {
 
   protected readonly phrases = computed<string[]>(() =>
     this.i18n.isEs()
-      ? ['Angular & React | Clean Architecture', 'Mobile Dev con Flutter & Ionic', 'Desarrollo impulsado por IA', 'Creando mundos en Unity']
-      : ['Angular & React | Clean Architecture', 'Mobile Dev with Flutter & Ionic', 'AI-Driven Development', 'Building worlds in Unity'],
+      ? ['Angular & React | Clean Architecture', 'Full Stack con Node.js y TypeScript', 'Mobile Dev con Flutter & Ionic', 'Desarrollo impulsado por IA', 'Creando mundos en Unity']
+      : ['Angular & React | Clean Architecture', 'Full Stack with Node.js and TypeScript', 'Mobile Dev with Flutter & Ionic', 'AI-Driven Development', 'Building worlds in Unity'],
   );
 
   protected readonly heroBg = computed(() =>
-    this.theme.isDark() ? 'bg-gradient-to-br from-dark-bg to-[#2a2520]' : 'bg-gradient-to-br from-light-bg to-light-surface',
+    this.theme.isDark() ? 'bg-gradient-to-br from-dark-bg to-[#1f3340]' : 'bg-gradient-to-br from-light-bg to-light-surface',
   );
 
   protected readonly codeBlock = computed(() =>
@@ -48,7 +48,7 @@ export class Hero implements OnInit, OnDestroy {
   );
 
   protected readonly btnPrimary = computed(() =>
-    this.theme.isDark() ? 'bg-accent text-dark-bg hover:bg-accent-hover' : 'bg-accent-light text-white hover:bg-[#9a7209]',
+    this.theme.isDark() ? 'bg-accent text-dark-bg hover:bg-accent-hover' : 'bg-accent-light text-white hover:bg-[#3f6a5e]',
   );
 
   protected readonly btnOutline = computed(() =>
