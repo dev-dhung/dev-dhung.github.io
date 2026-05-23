@@ -7,49 +7,102 @@
       {{ 'projects.subtitle' | translate }}
     </p>
 
-    <!-- Two category cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      @for (cat of categories; track cat.key; let i = $index) {
-        <div
-          appScrollAnimate [delay]="i * 150"
-          class="rounded-2xl border p-8 transition-all duration-300 flex flex-col min-h-[280px]"
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+      <!-- Featured projects -->
+      @for (project of featuredProjects(); track project.url; let i = $index) {
+        <a appScrollAnimate [delay]="i * 100"
+          [href]="project.homepage || project.url"
+          target="_blank"
+          rel="noopener"
+          class="group rounded-2xl border p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col relative overflow-hidden"
           [class]="cardStyle()"
-          [class.hover:-translate-y-1]="hasProjects(cat.key)"
-          [class.hover:shadow-lg]="hasProjects(cat.key)"
-          [class.cursor-pointer]="hasProjects(cat.key)"
-          [class.opacity-70]="!hasProjects(cat.key)"
-          (click)="openCategory(cat.key)"
         >
+          <div class="absolute -top-20 -right-20 w-48 h-48 rounded-full bg-accent-soft blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+          <div class="relative flex flex-col h-full">
+            <div class="flex items-center justify-between mb-5">
+              <span class="text-[0.65rem] uppercase tracking-widest font-semibold text-accent flex items-center gap-1.5">
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.3 5.8 22l2.4-8.1L2 9.4h7.6z"/>
+                </svg>
+                {{ 'projects.featured' | translate }}
+              </span>
+              <span class="text-accent text-lg transition-transform duration-300 group-hover:translate-x-1">&#8594;</span>
+            </div>
+
+            <h3 class="font-heading text-2xl mb-3" [class]="titleColor()">{{ project.name }}</h3>
+            <p class="text-sm leading-relaxed mb-5 flex-1" [class]="cardDesc()">{{ project.description }}</p>
+
+            <div class="flex flex-wrap gap-2 mb-5">
+              @for (topic of project.topics.slice(0, 4); track topic) {
+                <span class="px-3 py-1 rounded-full text-xs font-semibold" [class]="tagStyle()">{{ topic }}</span>
+              }
+            </div>
+
+            <span class="text-sm font-semibold text-accent flex items-center gap-1.5 mt-auto">
+              {{ 'projects.visitSite' | translate }}
+              <span class="transition-transform duration-300 group-hover:translate-x-1">&#8594;</span>
+            </span>
+          </div>
+        </a>
+      }
+
+      <!-- DH Studios -->
+      <div appScrollAnimate [delay]="featuredProjects().length * 100"
+        class="group rounded-2xl border p-7 transition-all duration-300 flex flex-col relative overflow-hidden"
+        [class]="cardStyle()"
+        [class.cursor-pointer]="hasProjects('labs')"
+        [class.hover:-translate-y-1]="hasProjects('labs')"
+        [class.hover:shadow-xl]="hasProjects('labs')"
+        (click)="openCategory('labs')"
+      >
+        <div class="absolute -top-20 -right-20 w-48 h-48 rounded-full bg-accent-soft blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+        <div class="relative flex flex-col h-full">
           <div class="flex items-center justify-between mb-5">
-            <span class="text-4xl" [innerHTML]="cat.icon"></span>
-            @if (hasProjects(cat.key)) {
+            <svg class="dh-logo text-accent" width="44" height="44" viewBox="0 0 36 36" aria-hidden="true">
+              <rect x="2" y="2" width="32" height="32" rx="8"
+                    fill="none" stroke="currentColor" stroke-width="1.75"
+                    class="dh-logo-frame" />
+              <text x="18" y="23.5" text-anchor="middle"
+                    font-family="'Sora', system-ui, sans-serif"
+                    font-size="13" font-weight="700" letter-spacing="0.5"
+                    fill="currentColor">DH</text>
+              <circle cx="28" cy="8" r="1.75" fill="currentColor"
+                      class="dh-logo-dot" />
+            </svg>
+            @if (hasProjects('labs')) {
               <span class="bg-accent-soft text-accent px-3 py-1 rounded-full text-xs font-semibold">
-                {{ projectCount(cat.key) }} {{ projectCount(cat.key) === 1 ? 'proyecto' : 'proyectos' }}
+                {{ projectCount('labs') }}
               </span>
             } @else {
-              <span class="bg-accent-soft text-accent px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">
+              <span class="bg-accent-soft text-accent px-3 py-1 rounded-full text-[0.65rem] font-semibold uppercase tracking-widest">
                 {{ 'projects.coming' | translate }}
               </span>
             }
           </div>
 
-          <h3 class="font-heading text-xl mb-3" [class]="titleColor()">
-            {{ cat.titleKey | translate }}
+          <h3 class="font-heading text-2xl mb-3" [class]="titleColor()">
+            {{ 'projects.labs.title' | translate }}
           </h3>
-
-          <p class="text-sm leading-relaxed flex-1" [class]="cardDesc()">
-            {{ cat.descKey | translate }}
+          <p class="text-sm leading-relaxed mb-5 flex-1" [class]="cardDesc()">
+            {{ 'projects.labs.desc' | translate }}
           </p>
 
-          @if (hasProjects(cat.key)) {
-            <div class="mt-5 pt-4 border-t" [class]="theme.isDark() ? 'border-dark-border' : 'border-light-border'">
-              <span class="text-sm font-medium text-accent">
-                {{ i18n.isEs() ? 'Ver proyectos' : 'View projects' }} &#8594;
-              </span>
-            </div>
+          @if (hasProjects('labs')) {
+            <span class="text-sm font-semibold text-accent flex items-center gap-1.5 mt-auto">
+              {{ i18n.isEs() ? 'Ver proyectos' : 'View projects' }}
+              <span class="transition-transform duration-300 group-hover:translate-x-1">&#8594;</span>
+            </span>
+          } @else {
+            <span class="text-xs italic mt-auto" [class]="mutedColor()">
+              "{{ 'studios.slogan' | translate }}"
+            </span>
           }
         </div>
-      }
+      </div>
+
     </div>
   </div>
 </section>
@@ -59,6 +112,7 @@
     [projects]="activeProjects()"
     [categoryTitle]="activeCategoryData()!.titleKey | translate"
     [categoryIcon]="activeCategoryData()!.icon"
+    [categoryKey]="activeCategoryData()!.key"
     (close)="closeModal()"
   />
 }

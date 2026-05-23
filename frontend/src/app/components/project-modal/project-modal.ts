@@ -13,6 +13,7 @@ export class ProjectModal {
   readonly projects = input.required<Project[]>();
   readonly categoryTitle = input.required<string>();
   readonly categoryIcon = input('');
+  readonly categoryKey = input<'apps' | 'labs' | ''>('');
   readonly close = output<void>();
 
   protected readonly theme = inject(ThemeService);

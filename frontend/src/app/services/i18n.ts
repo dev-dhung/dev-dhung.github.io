@@ -18,8 +18,8 @@ export class I18nService {
 
     'hero.greeting': { es: 'Hola, soy', en: "Hi, I'm" },
     'hero.title': {
-      es: 'Ingeniero de Sistemas | Desarrollador Full Stack | Construyendo soluciones escalables con TypeScript, Angular y Node.js',
-      en: 'Systems Engineer | Full Stack Developer | Building Scalable Solutions with TypeScript, Angular, and Node.js',
+      es: 'Desarrollador Fullstack | IA Generativa · Construyendo productos digitales escalables',
+      en: 'Fullstack Developer | Generative AI · Building scalable digital products',
     },
     'hero.cta': { es: 'Contáctame', en: 'Get in Touch' },
     'hero.cv': { es: 'Descargar CV', en: 'Download CV' },
@@ -76,6 +76,8 @@ export class I18nService {
     'projects.title': { es: 'Proyectos', en: 'Projects' },
     'projects.subtitle': { es: 'En lo que estoy trabajando y lo que viene', en: "What I'm working on and what's next" },
     'projects.coming': { es: 'Próximamente', en: 'Coming Soon' },
+    'projects.featured': { es: 'Destacado', en: 'Featured' },
+    'projects.visitSite': { es: 'Visitar sitio', en: 'Visit site' },
     'projects.apps.title': { es: 'Web & Apps', en: 'Web & Apps' },
     'projects.apps.desc': {
       es: 'Aplicaciones web y móviles con Angular, Ionic y más. Proyectos profesionales y personales.',
@@ -83,8 +85,8 @@ export class I18nService {
     },
     'projects.labs.title': { es: 'DH Studios', en: 'DH Studios' },
     'projects.labs.desc': {
-      es: 'Creatividad impulsada por sistemas. Videojuegos indie desarrollados con Unity bajo mi sello personal.',
-      en: 'Systems Driven Creativity. Indie games developed with Unity under my personal brand.',
+      es: 'Creatividad impulsada por sistemas. Videojuegos indie con Unity bajo mi sello personal.',
+      en: 'Systems Driven Creativity. Indie games with Unity under my personal brand.',
     },
     'studios.slogan': {
       es: 'Creatividad impulsada por sistemas',

@@ -5,7 +5,6 @@ import { I18nService } from '../../services/i18n';
 import { TranslatePipe } from '../../pipes/translate-pipe';
 import { ScrollAnimate } from '../../directives/scroll-animate';
 import { ProjectModal } from '../project-modal/project-modal';
-import { Project } from '../../models/project';
 
 type GroupKey = 'apps' | 'labs';
 
@@ -30,13 +29,16 @@ export class Projects {
 
   protected readonly categories: CategoryCard[] = [
     { key: 'apps', titleKey: 'projects.apps.title', descKey: 'projects.apps.desc', icon: '&#128187;' },
-    { key: 'labs', titleKey: 'projects.labs.title', descKey: 'projects.labs.desc', icon: '&#128126;' },
+    { key: 'labs', titleKey: 'projects.labs.title', descKey: 'projects.labs.desc', icon: '' },
   ];
+
+  protected readonly featuredProjects = computed(() =>
+    this.github.projects().filter((p) => p.featured),
+  );
 
   private readonly appProjects = computed(() =>
     this.github.projects().filter((p) => p.category === 'web' || p.category === 'mobile'),
   );
-
   private readonly labProjects = computed(() =>
     this.github.projects().filter((p) => p.category === 'game'),
   );
@@ -56,10 +58,13 @@ export class Projects {
   protected readonly mutedColor = computed(() => this.theme.isDark() ? 'text-dark-text-muted' : 'text-light-text-muted');
   protected readonly cardStyle = computed(() =>
     this.theme.isDark()
-      ? 'bg-dark-card border-dark-border hover:border-accent hover:bg-dark-card-hover'
-      : 'bg-light-card border-light-border hover:border-accent-light hover:bg-light-card-hover',
+      ? 'bg-dark-card border-dark-border hover:border-accent'
+      : 'bg-light-card border-light-border hover:border-accent-light',
   );
   protected readonly cardDesc = computed(() => this.theme.isDark() ? 'text-dark-text-secondary' : 'text-light-text-secondary');
+  protected readonly tagStyle = computed(() =>
+    this.theme.isDark() ? 'bg-dark-card-hover text-accent' : 'bg-light-surface text-accent-light',
+  );
 
   protected projectCount(group: GroupKey): number {
     return group === 'apps' ? this.appProjects().length : this.labProjects().length;
